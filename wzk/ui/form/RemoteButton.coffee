@@ -76,10 +76,11 @@ class wzk.ui.form.RemoteButton extends wzk.ui.Button
   ###*
     @override
   ###
-  decorate: (el) ->
+  enterDocument: ->
+    el = @getElement()
     el.setAttribute 'type', 'button'
-    super el
     @parseFields el
+    super()
 
   ###*
     @protected
