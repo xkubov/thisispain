@@ -44,6 +44,7 @@ class wzk.resource.Query
     @accept = 'application/json'
     @filters = new goog.Uri.QueryData()
     @defaultFilters = @parseDefaultFilters()
+    @requestCount = false
     @
 
   putDefaultFields: ->
@@ -240,6 +241,18 @@ class wzk.resource.Query
   ###
   sortNo: (name) ->
     @sorting.remove name
+
+  ###*
+    Request count from endpoint
+  ###
+  setRequestCount: ->
+    @requestCount = true
+
+  ###*
+    Turn off request count from endpoint
+  ###
+  unsetRequestCount: ->
+    @requestCount = false
 
   ###*
     Sorts a query set by given a nameumn name and a direction.

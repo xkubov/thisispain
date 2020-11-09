@@ -130,6 +130,19 @@ wzk.ui.grid.buildGrid = (table, dom, xhrFac, reg, ss, ctor, flash, params = new 
       bulkChange = new wzk.ui.grid.BulkChange(dom, new wzk.resource.Client(xhrFac), grid, reg, flash)
       bulkChange.decorate(bulkChangeEl)
 
+  resetButtonEl = dom.getParentElement(table).querySelector('.reset-filters')
+  goog.events.listen resetButtonEl, goog.events.EventType.CLICK, ->
+    watcher.resetFiltering()
+
+
+  reloadButtonEl = dom.getParentElement(table).querySelector('.reload')
+  goog.events.listen reloadButtonEl, goog.events.EventType.CLICK, ->
+    grid.refresh()
+
+  reloadButtonEl = dom.getParentElement(table).querySelector('.reload-count')
+  goog.events.listen reloadButtonEl, goog.events.EventType.CLICK, ->
+    grid.refreshWithCount()
+
   grid
 
 
