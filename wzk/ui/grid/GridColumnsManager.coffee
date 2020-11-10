@@ -66,6 +66,7 @@ class wzk.ui.grid.GridColumnsManager extends wzk.ui.Component
     @cols = @getOrCreateState()
 
     @filterStates = @getInitialFilterStates()
+
     @filteringTextEl = @dom.getElement(
       [wzk.ui.grid.GridColumnsManager.CLS.COLUMNS_FILTERING_TEXT, @grid.table.id].join('-'))
     unless @filteringTextEl

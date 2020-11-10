@@ -177,6 +177,14 @@ class wzk.ui.grid.Grid extends wzk.ui.Component
       @paginator?.refresh(result)
     )
 
+  refreshWithCount: =>
+    @query = @getQuery()
+    @query.setRequestCount()
+    @buildBody(@buildQuery(), (result) =>
+      @paginator?.refresh(result)
+    )
+    @query.unsetRequestCount()
+
   ###*
     @protected
   ###

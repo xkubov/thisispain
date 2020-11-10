@@ -151,8 +151,7 @@ class wzk.ui.grid.FilterWatcher extends goog.events.EventTarget
   filter: (triggeredFilter) ->
     if triggeredFilter.apply(@query)
       for filterName, filter of @fields
-        if goog.string.startsWith(filterName, triggeredFilter.getName())
-          filter.apply(@query)
+        filter.apply(@query)
       @dispatchEvent new goog.events.Event wzk.ui.grid.FilterWatcher.EventType.RESET_PAGINATOR, {}
       @dispatchChanged()
 

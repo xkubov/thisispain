@@ -31,6 +31,7 @@ class wzk.resource.Client
     REQUESTED_WITH: 'X-Requested-With'
     NEXT_CURSOR: 'X-Next-Cursor'
     CURSOR: 'X-Cursor'
+    REQUEST_COUNT: 'X-Request-Count'
 
   ###*
     @enum {string}
@@ -114,6 +115,7 @@ class wzk.resource.Client
       headers[X.SERIALIZATION_FORMAT] = query.getSerFormat()
       headers[X.CURSOR] = query.cursor if query.cursor?
       headers[wzk.resource.Client.HEADERS.ACCEPT] = query.getAccept()
+      headers[X.REQUEST_COUNT] = query.requestCount if query.requestCount
 
     method = 'GET'
 
