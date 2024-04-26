@@ -271,6 +271,8 @@ class wzk.ui.grid.Grid extends wzk.ui.Component
     btn.call @repo.getClient(), model['_rest_links'][action['name']]['url'], action['method'], action['data'], (response) =>
       @flash.success action['success_text']
       @rowBuilder.replaceRowByModel(response)
+    if action['hide_row']
+      @silentlyRemoveRow(btn)
 
   ###*
     @protected
