@@ -269,8 +269,13 @@ class wzk.ui.grid.Grid extends wzk.ui.Component
     model = btn.getModel().model
     action = btn.getModel().action
     btn.call @repo.getClient(), model['_rest_links'][action['name']]['url'], action['method'], action['data'], (response) =>
-      @flash.success action['success_text']
-      @rowBuilder.replaceRowByModel(response)
+      if action['success_text']
+        @flash.success action['success_text']
+      if action['hide_row']
+        @data = @data.filter (x) -> x != model
+        @rerender()
+      else
+        @rowBuilder.replaceRowByModel(response)
 
   ###*
     @protected
