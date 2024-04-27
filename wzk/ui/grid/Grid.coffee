@@ -265,6 +265,7 @@ class wzk.ui.grid.Grid extends wzk.ui.Component
     @param {goog.events.Event} e
   ###
   handleRemoteButton: (e) =>
+    console.log "Handling remote button"
     btn = e.target
     model = btn.getModel().model
     action = btn.getModel().action
@@ -272,6 +273,7 @@ class wzk.ui.grid.Grid extends wzk.ui.Component
       @flash.success action['success_text']
       @rowBuilder.replaceRowByModel(response)
     if action['hide_row']
+      console.log "hiding row"
       @silentlyRemoveRow(btn)
 
   ###*
