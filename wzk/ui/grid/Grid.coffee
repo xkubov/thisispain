@@ -274,7 +274,8 @@ class wzk.ui.grid.Grid extends wzk.ui.Component
       @rowBuilder.replaceRowByModel(response)
     if action['hide_row']
       console.log "hiding row"
-      @dispatchDeleteItem(btn)
+      @data = @data.filter (x) -> x != e.target
+      @rerender()
       @silentlyRemoveRow(btn)
 
   ###*
